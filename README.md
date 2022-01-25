@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of Rcofog is to retreive function of government data 
+The goal of Rcofog is to retrieve financial data about functions of government  
 
 ## Installation
 
