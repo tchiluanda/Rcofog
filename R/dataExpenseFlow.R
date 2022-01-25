@@ -69,7 +69,7 @@ dataExpenseFlow <- function(year=2020){
     dplyr::mutate(total_gasto = total_gasto / 10^3) %>%
     dplyr::mutate(descricao_cofog= reorder(descricao_cofog, total_gasto)) %>%
     dplyr::arrange(desc(descricao_cofog)) %>%
-    dplyr::mutate (source = row_number() -1)
+    dplyr::mutate (source = dplyr::row_number() -1)
 
   pai<-
     (dados_cofog_completo %>%

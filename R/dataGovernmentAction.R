@@ -1,5 +1,3 @@
-
-
 dataGovernmentAction <- function(.data,action=NULL, cluster=NULL){
 
   if(is.null(cluster)){

@@ -17,7 +17,7 @@ graphYearlyDistributionPercentage <- function(.data) {
     ggplot2::theme(
       panel.grid = ggplot2::element_blank()
     )+
-    ggplot2::labs(fill=str_wrap("Função",20),
+    ggplot2::labs(fill="Função",
                   x="",
                   y="% do gasto total")
 

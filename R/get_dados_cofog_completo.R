@@ -3,22 +3,22 @@ get_dados_cofog_completo<- function(a_ano, a_cofog_path_completo =FALSE){
 
   base_trabalho<-
     Base_COFOG %>%
-    filter(ano==a_ano) %>%
-    mutate(codigo_cofog_pai = stringr::str_sub(codigo_cofog,1,3),
+    dplyr::filter(ano==a_ano) %>%
+    dplyr::mutate(codigo_cofog_pai = stringr::str_sub(codigo_cofog,1,3),
            acao_governo = ifelse(acao_governo == "ND", ajustes,acao_governo)) %>%
-    select(-descricao_cofog) %>%
-    inner_join(COFOG_GC) %>%
-    inner_join(COFOG_GC, by = c("codigo_cofog_pai"="codigo_cofog")) %>%
-    rename(descricao_cofog =  descricao_cofog.x,
+    dplyr::select(-descricao_cofog) %>%
+    dplyr::inner_join(COFOG_GC) %>%
+    dplyr::inner_join(COFOG_GC, by = c("codigo_cofog_pai"="codigo_cofog")) %>%
+    dplyr::rename(descricao_cofog =  descricao_cofog.x,
            descricao_cofog_pai = descricao_cofog.y)
 
   if (a_cofog_path_completo){
     base_trabalho%>%
-      mutate(cofog_path = paste(descricao_cofog_pai, descricao_cofog))
+      dplyr::mutate(cofog_path = paste(descricao_cofog_pai, descricao_cofog))
   } else{
 
     base_trabalho%>%
-      mutate(cofog_path = descricao_cofog_pai)
+      dplyr::mutate(cofog_path = descricao_cofog_pai)
 
 
   }

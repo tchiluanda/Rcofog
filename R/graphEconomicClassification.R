@@ -13,7 +13,7 @@ graphEconomicClassification <- function(.data, free_scale= TRUE){
     .data %>%
     dplyr::filter(codigo_cofog_pai == "7") %>%
     dplyr::mutate(descricao_cofog = reorder(descricao_cofog, valor),
-                  funcao_economica = reorder(funcao_economica, desc(valor))) %>%
+                  funcao_economica = reorder(funcao_economica, dplyr::desc(valor))) %>%
     ggplot2::ggplot(ggplot2::aes(x=factor(descricao_cofog),valor, fill= funcao_economica))+
     ggplot2::geom_col(color = "white")+
     viridis::scale_fill_viridis(discrete=TRUE) +

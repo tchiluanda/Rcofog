@@ -13,7 +13,7 @@ dataTimeSeries<- function(sel_function= c("Saúde","Educação")){
     base_grafico %>%
     dplyr::filter(codigo_cofog_pai == 7) %>%
     dplyr::mutate(ano = as.character(ano)) %>%
-    group_by(ano) %>%
+    dplyr::group_by(ano) %>%
     dplyr::summarise(
       total_ano = sum(valor)
     )

@@ -45,8 +45,8 @@ graphGovernmentAction <- function(.data, cluster= NULL, action="Juros"){
   graph<-
 
     .data %>%
-    filter(cluster %in% filter_cluster) %>%
-    anti_join(dados_filtrados) %>%
+    dplyr::filter(cluster %in% filter_cluster) %>%
+    dplyr::anti_join(dados_filtrados) %>%
     ggplot2::ggplot(ggplot2::aes(x=stringr::str_wrap(cofog_path,15), y= total/10^3))+
     ggplot2::geom_jitter(ggplot2::aes(fill= cofog_path), show.legend = FALSE, size=4, height = 0, width = ifelse(.data$cluster==1,0.4,0.1), alpha = 0.3, pch=21, color="white")+
     ggplot2::geom_jitter( data= dados_filtrados,  size = 4, show.legend = FALSE, height = 0, width = ifelse(dados_filtrados$cluster==1,0.2,0.1),alpha = 0.5, fill = "black", pch=21, color="white") +

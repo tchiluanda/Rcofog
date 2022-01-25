@@ -18,7 +18,7 @@ defineActionCluster <- function(year=2020) {
       total = sum(valor)
     ) %>%
     dplyr::filter(total>0) %>%
-    dplyr::arrange(desc(total))
+    dplyr::arrange(dplyr::desc(total))
 
   info<-sessioninfo::session_info()
 
@@ -38,7 +38,7 @@ defineActionCluster <- function(year=2020) {
     df_cluster %>%
     dplyr::ungroup() %>%
     dplyr::mutate(cluster = model$cluster,
-                  cluster = reorder(cluster, desc(cluster)),
+                  cluster = reorder(cluster, dplyr::desc(cluster)),
                   info_selecao = paste(acao_governo,cofog_path,cluster,sep="|"))
   print("passou pela definição de cluster")
   print(.data)
