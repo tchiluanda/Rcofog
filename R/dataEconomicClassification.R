@@ -14,12 +14,12 @@ dataEconomicClassification<- function(year=2020){
   indice_sheet<-as.numeric(a_ano)-2010+1
   sheet<- paste0("2.",indice_sheet)
 
+  #"./inst/extdata/COFOG-GCO.xlsx"
 
-
-  COFOG_GC_names<- readxl::read_excel("./inst/extdata/COFOG-GCO.xlsx", sheet = sheet,
+  COFOG_GC_names<- readxl::read_excel(system.file("extdata", "COFOG-GCO.xlsx", package = "Rcofog") , sheet = sheet,
                               skip = 2, n_max = 1)
 
-  COFOG_GC_dados <- readxl::read_excel("./inst/extdata/COFOG-GCO.xlsx", sheet = sheet,
+  COFOG_GC_dados <- readxl::read_excel(system.file("extdata", "COFOG-GCO.xlsx", package = "Rcofog"), sheet = sheet,
                                skip = 4)
 
   COFOG_GC<- COFOG_GC_dados
