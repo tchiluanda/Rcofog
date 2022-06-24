@@ -8,7 +8,7 @@
 #' defineActionCluster(year=2020) %>% graphGovernmentAction()
 #' @export
 
-graphGovernmentAction <- function(.data, cluster= NULL, action="Juros"){
+graphGovernmentAction <- function(.data, cluster= NULL, action="JUROS"){
 
   if(is.null(cluster)){
     filter_cluster<-c(1,2,3)
